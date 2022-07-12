@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import {Navbar,NavbarBrand} from 'reactstrap'
+import './components/MenuComponent';
 import './App.css';
+import Menu from './components/MenuComponent';
 
 function App() {
   return (
@@ -10,6 +12,7 @@ function App() {
           <NavbarBrand href='/'> Cat </NavbarBrand>
         </div>
       </Navbar>
+      <Menu />
     </div>
   );
 }
