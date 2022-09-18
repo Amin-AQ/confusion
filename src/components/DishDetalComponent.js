@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Media, Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'reactstrap';
-import Menu from "./MenuComponent";
+
 class DishDetails extends Component
 {
     constructor(props){
@@ -29,9 +29,9 @@ class DishDetails extends Component
         }
     }
     renderComments(){
-        const commentList = this.props.scomments.map((comnt) => {
+        var commentList = this.props.scomments.map((comnt) => {
             return (
-                <CardText key={comnt.id}>{comnt.author}<br/>{comnt.comment}<br />{comnt.date}<br/></CardText>
+                <CardText key={comnt.id}>{comnt.author}<br/>{comnt.comment}<br /> {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comnt.date)))} <br/></CardText>
             );
         });
         if(commentList!=null){
@@ -54,9 +54,11 @@ class DishDetails extends Component
     }
     render(){
         return(
-            <div className="row">
-                {this.renderDish()}
-                {this.renderComments()}
+            <div class='container'>
+                <div className="row">
+                    {this.renderDish()}
+                    {this.renderComments()}
+                </div>
             </div>
         );
     }
