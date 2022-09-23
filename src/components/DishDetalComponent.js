@@ -29,12 +29,17 @@ class DishDetails extends Component
         }
     }
     renderComments(){
-        var commentList = this.props.scomments.map((comnt) => {
+        var commentList = this.props.sdish.comments.map((comnt) => {
             return (
-                <CardText key={comnt.id}>{comnt.author}<br/>{comnt.comment}<br /> {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comnt.date)))} <br/></CardText>
+                <CardText key={comnt.id}>
+                    {comnt.author}<br />
+                    {comnt.comment}<br /> 
+                    {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comnt.date)))} 
+                    <br />
+                </CardText>
             );
         });
-        if(commentList!=null){
+        if(commentList!=null) {
             return(
                 <div className="col-12 col-md-5 m-1">
                     <Card>
@@ -49,7 +54,8 @@ class DishDetails extends Component
         else
         {
             return (
-            <div></div> );
+            <div></div> 
+            );
         }
     }
     render(){
